@@ -1,0 +1,171 @@
+/* public/styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  h1 {
+    color: #333;
+  }
+  
+  a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+/* Estilos para el formulario */
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  input[type="text"],
+  input[type="password"],
+  input[type="file"] {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  
+  input[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  input[type="submit"]:hover {
+    background-color: #0056b3;
+  }
+/* Estilos para la tabla */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+  }
+  
+  table, th, td {
+    border: 1px solid #ddd;
+  }
+  
+  th, td {
+    padding: 10px;
+    text-align: left;
+  }
+  
+  th {
+    background-color: #f4f4f4;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  tr:hover {
+    background-color: #f1f1f1;
+  }
+/* Estilos específicos para la página de inicio */
+
+.table-container {
+    margin-top: 20px;
+  }
+        
+  /* Estilos para la imagen circular que actúa como botón */
+
+.image-upload {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .circular-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #ccc; /* Color de fondo gris */
+    object-fit: cover;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 24px;
+  }
+  
+  .circular-image::before {
+    content: 'Añadir Imagen'; /* Texto de marcador de posición */
+    display: block;
+    text-align: center;
+    line-height: 100px; /* Igual al tamaño de la imagen para centrar el texto */
+  }
+  
+  input[type="file"] {
+    display: none; /* Oculta el campo de entrada de archivo */
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  input[type="text"],
+  input[type="password"] {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  
+  input[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  input[type="submit"]:hover {
+    background-color: #0056b3;
+  }
+  /* Estilos para la imagen circular que actúa como botón */
+
+.circular-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-color: #ccc; /* Color de fondo gris */
+  object-fit: cover;
+  cursor: pointer;
+ 
+}
+
+.circular-image::before {
+  content: 'Añadir Imagen'; /* Texto de marcador de posición */
+  display: block;
+  text-align: center;
+  line-height: 100px; /* Igual al tamaño de la imagen para centrar el texto */
+}

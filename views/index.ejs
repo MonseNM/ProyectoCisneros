@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista de Usuarios</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/styles.css">
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</head>
+<body>
+  <div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <h1 class="mb-0">Lista de Usuarios</h1>
+      <a href="/add" class="btn btn-primary">
+        <i class="fas fa-user-plus"></i> Agregar Usuario
+      </a>
+    </div>
+
+    <div class="table-responsive">
+      <table class="table table-striped table-bordered text-center">
+        <tbody>
+          <% usuarios.forEach(usuario => { %>
+            <tr>
+              <td><img src="<%= usuario.imagen %>" alt="Imagen" class="circular-image img-fluid"></td>
+              <td><%= usuario.nombre %></td>
+              <td>
+                <a href="/edit/<%= usuario.id %>" class="btn btn-warning btn-sm">
+                  <i class="fas fa-edit"></i> Editar
+                </a>
+                <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#confirmDeleteModal" data-id="<%= usuario.id %>">
+                  <i class="fas fa-trash-alt"></i> Eliminar
+                </button>
+              </td>
+            </tr>
+          <% }); %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Modal para confirmación de eliminación -->
+  <div class="modal fade" id="confirmDeleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="deleteModalLabel">Confirmar Eliminación</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          ¿Estás seguro de que quieres eliminar este usuario?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+          <a id="confirmDeleteBtn" href="#" class="btn btn-danger">Eliminar</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>
+    // Asigna la ruta de eliminación al botón "Eliminar" del modal
+    $('#confirmDeleteModal').on('show.bs.modal', function (event) {
+      var button = $(event.relatedTarget);
+      var userId = button.data('id');
+      var deleteUrl = '/delete/' + userId;
+      $('#confirmDeleteBtn').attr('href', deleteUrl);
+    });
+  </script>
+</body>
+</html>
